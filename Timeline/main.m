@@ -1,0 +1,18 @@
+//
+//  main.m
+//  Timeline
+//
+//  Created by Fitz on 3/2/13.
+//
+//
+
+#import <UIKit/UIKit.h>
+
+#import "TAppDelegate.h"
+
+int main(int argc, char *argv[])
+{
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TAppDelegate class]));
+    }
+}
