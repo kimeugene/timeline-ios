@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TCoreLocationController.h"
+#import "TServerPingOperation.h"
 
 @interface TMapViewController : UIViewController <TCoreLocationControllerDelegate>
 

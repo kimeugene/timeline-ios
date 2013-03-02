@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4A2E4AD16E2B548004364AC /* TServerPingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */; };
+		C4A2E4B016E2B646004364AC /* TConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A2E4AF16E2B646004364AC /* TConfig.m */; };
 		C4B1945316E29BA8008818E7 /* TCoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B1945216E29BA8008818E7 /* TCoreLocationController.m */; };
 		C4E9545616E2825E00F6281E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E9545516E2825E00F6281E /* UIKit.framework */; };
 		C4E9545816E2825E00F6281E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E9545716E2825E00F6281E /* Foundation.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4A2E4AB16E2B548004364AC /* TServerPingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TServerPingOperation.h; sourceTree = "<group>"; };
+		C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TServerPingOperation.m; sourceTree = "<group>"; };
+		C4A2E4AE16E2B646004364AC /* TConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TConfig.h; sourceTree = "<group>"; };
+		C4A2E4AF16E2B646004364AC /* TConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TConfig.m; sourceTree = "<group>"; };
 		C4B1945116E29BA8008818E7 /* TCoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCoreLocationController.h; sourceTree = "<group>"; };
 		C4B1945216E29BA8008818E7 /* TCoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCoreLocationController.m; sourceTree = "<group>"; };
 		C4E9545216E2825E00F6281E /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +182,8 @@
 		C4E9545B16E2825E00F6281E /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				C4A2E4AE16E2B646004364AC /* TConfig.h */,
+				C4A2E4AF16E2B646004364AC /* TConfig.m */,
 				C4E9546416E2825E00F6281E /* TAppDelegate.h */,
 				C4E9546516E2825E00F6281E /* TAppDelegate.m */,
 				C4E9548A16E2829400F6281E /* TNavigationController.h */,
@@ -184,6 +192,8 @@
 				C4E9548E16E2847E00F6281E /* TMapViewController.m */,
 				C4B1945116E29BA8008818E7 /* TCoreLocationController.h */,
 				C4B1945216E29BA8008818E7 /* TCoreLocationController.m */,
+				C4A2E4AB16E2B548004364AC /* TServerPingOperation.h */,
+				C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */,
 				C4E9545C16E2825E00F6281E /* Supporting Files */,
 			);
 			path = Timeline;
@@ -337,6 +347,8 @@
 				C4E9548C16E2829400F6281E /* TNavigationController.m in Sources */,
 				C4E9548F16E2847E00F6281E /* TMapViewController.m in Sources */,
 				C4B1945316E29BA8008818E7 /* TCoreLocationController.m in Sources */,
+				C4A2E4AD16E2B548004364AC /* TServerPingOperation.m in Sources */,
+				C4A2E4B016E2B646004364AC /* TConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +460,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Timeline/Timeline-Prefix.pch";
 				INFOPLIST_FILE = "Timeline/Timeline-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -463,7 +478,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Timeline/Timeline-Prefix.pch";
 				INFOPLIST_FILE = "Timeline/Timeline-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

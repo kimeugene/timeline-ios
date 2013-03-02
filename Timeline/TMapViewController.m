@@ -10,11 +10,12 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface TMapViewController ()
-
+@property (nonatomic, retain) NSOperationQueue *operationQueue;
 @end
 
 @implementation TMapViewController
 @synthesize CLController;
+@synthesize operationQueue;
 GMSMapView *mapView_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -24,6 +25,7 @@ GMSMapView *mapView_;
         // Custom initialization
         [self.view setBackgroundColor:[UIColor whiteColor]];
         [self setTitle:@"Timeline"];
+        self.operationQueue = [[NSOperationQueue alloc] init];
     }
     return self;
 }
@@ -37,6 +39,11 @@ GMSMapView *mapView_;
 }
 
 - (void)locationUpdate:(CLLocation *)location {
+    TServerPingOperation *ping = [[TServerPingOperation alloc] init];
+    [ping setLatitude:[NSString stringWithFormat:@"%f",location.coordinate.latitude]];
+    [ping setLongitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]];
+    [self.operationQueue addOperation:ping];
+    
     NSLog(@"locationUpdate: location.timestamp: %@", location.timestamp);
     NSLog(@"locationUpdate: %@", [location description]);
 }
