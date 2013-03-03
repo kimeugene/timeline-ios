@@ -10,9 +10,8 @@
 #import "TCoreLocation.h"
 
 @interface TBackgroundPingOperation : NSOperation <NSURLConnectionDelegate, TCoreLocationDelegate>
-@property (nonatomic, retain) TCoreLocation *CLController;
-@property (strong, retain) NSURLConnection *connection;
-@property (strong, retain) NSMutableURLRequest *request;
-@property NSInteger requestNumber;
-@property (strong, retain) NSTimer *pingTimer;
+@property (nonatomic, retain) TCoreLocation       *coreLocation;
+@property (strong, retain)    NSURLConnection     *connection;
+@property (strong, retain)    NSMutableURLRequest *request;
+@property                     NSInteger            requestNumber;
 @end

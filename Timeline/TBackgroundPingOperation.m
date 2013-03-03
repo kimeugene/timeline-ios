@@ -9,19 +9,21 @@
 #import "TBackgroundPingOperation.h"
 
 @implementation TBackgroundPingOperation
-@synthesize CLController;
+@synthesize coreLocation;
 @synthesize connection;
 @synthesize request;
 @synthesize requestNumber;
-@synthesize pingTimer;
 
 - (void)main {
     requestNumber = 1;
-    CLController = [[TCoreLocation alloc] init];
-    CLController.delegate = self;
-    [CLController.locMgr startUpdatingLocation];
+    
+    // Initialize our Core Location interface
+    coreLocation = [[TCoreLocation alloc] init];
+    coreLocation.delegate = self;
+    [coreLocation.locMgr startUpdatingLocation];
+    
+    // Start the run loop so this operation stays active
     NSLog(@"TBackgroundPingOperation: main() executed");
-
     NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
     [runLoop run];
 }
@@ -36,7 +38,7 @@
     NSTimeInterval currentTimestamp = [date timeIntervalSince1970];
     
     // Post:
-    NSString *postString = [NSString stringWithFormat:@"email=fitz2@timeline.pwn&timestamp=%i&long=%f&lat=%f", abs(currentTimestamp), location.coordinate.longitude, location.coordinate.latitude];
+    NSString *postString = [NSString stringWithFormat:@"email=fitz4@timeline.pwn&timestamp=%i&long=%f&lat=%f", abs(currentTimestamp), location.coordinate.longitude, location.coordinate.latitude];
     [self.request setHTTPMethod:@"POST"];
     [self.request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
     [self.request setValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-Length"];
@@ -52,7 +54,7 @@
 }
 
 - (void)locationError:(NSError *)error {
-    NSLog(@"locationError: %@", [error description]);
+    NSLog(@"TBackgroundPingOperation locationError: %@", [error description]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection

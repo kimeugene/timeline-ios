@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
+
 #import "TCoreLocation.h"
+#import "TBackgroundPingOperation.h"
+#import "TGetTimelineOperation.h"
 
-@interface TMapViewController : UIViewController
+@interface TMapViewController : UIViewController <TGetTimelineOperationDelegate>
 
+- (void)sendGetTimelineRequest;
+- (void)updateTimeline:(NSArray*)listOfCoordinates;
 
 @end
