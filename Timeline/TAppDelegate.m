@@ -10,12 +10,24 @@
 
 @implementation TAppDelegate
 @synthesize navigationController;
+@synthesize operationQueue;
+@synthesize bgTask;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Configure the Google Maps SDK with our API key
     [GMSServices provideAPIKey:@"AIzaSyCFetwPQMuv5sI3D6So_RwjO8D6Ze3SEaw"];
     
+    // Create an instance of the global operation queue
+    self.operationQueue = [[NSOperationQueue alloc] init];
+
+    // Begin the background pinging
+    TBackgroundPingOperation *backgroundPing = [[TBackgroundPingOperation alloc] init];
+    [self.operationQueue addOperation:backgroundPing];
+    
+    // Create the window stack
     self.navigationController = [[TNavigationController alloc] init];
     [self.window addSubview:self.navigationController.view];
     [self.window makeKeyAndVisible];
@@ -32,6 +44,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"applicationDidEnterBackground");
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

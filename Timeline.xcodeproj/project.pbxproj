@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C4A2E4AD16E2B548004364AC /* TServerPingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */; };
 		C4A2E4B016E2B646004364AC /* TConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A2E4AF16E2B646004364AC /* TConfig.m */; };
+		C4A2E4B616E3D84D004364AC /* TBackgroundPingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A2E4B516E3D84D004364AC /* TBackgroundPingOperation.m */; };
 		C4B1945316E29BA8008818E7 /* TCoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B1945216E29BA8008818E7 /* TCoreLocationController.m */; };
 		C4E9545616E2825E00F6281E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E9545516E2825E00F6281E /* UIKit.framework */; };
 		C4E9545816E2825E00F6281E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E9545716E2825E00F6281E /* Foundation.framework */; };
@@ -57,6 +58,8 @@
 		C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TServerPingOperation.m; sourceTree = "<group>"; };
 		C4A2E4AE16E2B646004364AC /* TConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TConfig.h; sourceTree = "<group>"; };
 		C4A2E4AF16E2B646004364AC /* TConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TConfig.m; sourceTree = "<group>"; };
+		C4A2E4B416E3D84D004364AC /* TBackgroundPingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBackgroundPingOperation.h; sourceTree = "<group>"; };
+		C4A2E4B516E3D84D004364AC /* TBackgroundPingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBackgroundPingOperation.m; sourceTree = "<group>"; };
 		C4B1945116E29BA8008818E7 /* TCoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCoreLocationController.h; sourceTree = "<group>"; };
 		C4B1945216E29BA8008818E7 /* TCoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCoreLocationController.m; sourceTree = "<group>"; };
 		C4E9545216E2825E00F6281E /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +138,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4A2E4B116E3D1AE004364AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4A2E4AB16E2B548004364AC /* TServerPingOperation.h */,
+				C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */,
+				C4A2E4B416E3D84D004364AC /* TBackgroundPingOperation.h */,
+				C4A2E4B516E3D84D004364AC /* TBackgroundPingOperation.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C4A2E4B216E3D1B4004364AC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4B1945116E29BA8008818E7 /* TCoreLocationController.h */,
+				C4B1945216E29BA8008818E7 /* TCoreLocationController.m */,
+				C4E9548A16E2829400F6281E /* TNavigationController.h */,
+				C4E9548B16E2829400F6281E /* TNavigationController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C4A2E4B316E3D1D8004364AC /* ViewContollers */ = {
+			isa = PBXGroup;
+			children = (
+				C4E9548D16E2847E00F6281E /* TMapViewController.h */,
+				C4E9548E16E2847E00F6281E /* TMapViewController.m */,
+			);
+			name = ViewContollers;
+			sourceTree = "<group>";
+		};
 		C4E9544916E2825E00F6281E = {
 			isa = PBXGroup;
 			children = (
@@ -186,14 +220,9 @@
 				C4A2E4AF16E2B646004364AC /* TConfig.m */,
 				C4E9546416E2825E00F6281E /* TAppDelegate.h */,
 				C4E9546516E2825E00F6281E /* TAppDelegate.m */,
-				C4E9548A16E2829400F6281E /* TNavigationController.h */,
-				C4E9548B16E2829400F6281E /* TNavigationController.m */,
-				C4E9548D16E2847E00F6281E /* TMapViewController.h */,
-				C4E9548E16E2847E00F6281E /* TMapViewController.m */,
-				C4B1945116E29BA8008818E7 /* TCoreLocationController.h */,
-				C4B1945216E29BA8008818E7 /* TCoreLocationController.m */,
-				C4A2E4AB16E2B548004364AC /* TServerPingOperation.h */,
-				C4A2E4AC16E2B548004364AC /* TServerPingOperation.m */,
+				C4A2E4B216E3D1B4004364AC /* Controllers */,
+				C4A2E4B116E3D1AE004364AC /* Models */,
+				C4A2E4B316E3D1D8004364AC /* ViewContollers */,
 				C4E9545C16E2825E00F6281E /* Supporting Files */,
 			);
 			path = Timeline;
@@ -349,6 +378,7 @@
 				C4B1945316E29BA8008818E7 /* TCoreLocationController.m in Sources */,
 				C4A2E4AD16E2B548004364AC /* TServerPingOperation.m in Sources */,
 				C4A2E4B016E2B646004364AC /* TConfig.m in Sources */,
+				C4A2E4B616E3D84D004364AC /* TBackgroundPingOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,9 +491,10 @@
 				GCC_PREFIX_HEADER = "Timeline/Timeline-Prefix.pch";
 				INFOPLIST_FILE = "Timeline/Timeline-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -479,9 +510,10 @@
 				GCC_PREFIX_HEADER = "Timeline/Timeline-Prefix.pch";
 				INFOPLIST_FILE = "Timeline/Timeline-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

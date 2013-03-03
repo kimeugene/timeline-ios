@@ -10,6 +10,4 @@
 
 @implementation TConfig
 
-static NSString *ServerHostname = @"ec2-50-16-36-166.compute-1.amazonaws.com";
-
 @end
