@@ -29,7 +29,7 @@
         NSDate *eventDate = newLocation.timestamp;
         NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
         if (abs(howRecent) > 15.0) {
-            return;
+        //    return;
         }
         
         [self.delegate locationUpdate:newLocation];

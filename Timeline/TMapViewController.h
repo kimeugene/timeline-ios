@@ -10,8 +10,7 @@
 #import "TCoreLocationController.h"
 #import "TServerPingOperation.h"
 
-@interface TMapViewController : UIViewController <TCoreLocationControllerDelegate>
+@interface TMapViewController : UIViewController
 
-@property (nonatomic, retain) TCoreLocationController *CLController;
 
 @end

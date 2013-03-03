@@ -9,32 +9,45 @@
 #import "TBackgroundPingOperation.h"
 
 @implementation TBackgroundPingOperation
+@synthesize CLController;
 @synthesize connection;
 @synthesize request;
-@synthesize pingTimer;
 @synthesize requestNumber;
+@synthesize pingTimer;
 
 - (void)main {
-    requestNumber = 1;
     pingTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                  target:self
                                                selector:@selector(send)
                                                userInfo:nil
                                                 repeats:YES];
-    NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
-    [runLoop addTimer:pingTimer forMode:NSRunLoopCommonModes];
-    [runLoop run];
+    
+    requestNumber = 1;
+    CLController = [[TCoreLocationController alloc] init];
+    CLController.delegate = self;
+    [CLController.locMgr startUpdatingLocation];
     NSLog(@"TBackgroundPingOperation: main() executed");
+
+    NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
+    //    [runLoop addTimer:pingTimer forMode:NSRunLoopCommonModes];
+    [runLoop run];
 }
 
 - (void)send {
+    NSLog(@"send!");
+}
+
+- (void)locationUpdate:(CLLocation *)location {    
+    NSLog(@"TBackgroundPingOperation locationUpdate: location.timestamp: %@", location.timestamp);
+    NSLog(@"TBackgroundPingOperation locationUpdate: %@", [location description]);
+    
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.fastestvideodownloader.com/timeline/TBackgroundPingOperation.h?requestNumber=%i", requestNumber]];
     self.request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSDate *date = [[NSDate alloc] init];
     NSTimeInterval currentTimestamp = [date timeIntervalSince1970];
     
     // Post:
-    NSString *postString = [NSString stringWithFormat:@"email=fitz@timeline.pwn&timestamp=%i&long=%@&lat=%@", abs(currentTimestamp), @"50", @"40"];
+    NSString *postString = [NSString stringWithFormat:@"email=fitz@timeline.pwn&timestamp=%i&long=%f&lat=%f", abs(currentTimestamp), location.coordinate.longitude, location.coordinate.latitude];
     [self.request setHTTPMethod:@"POST"];
     [self.request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
     [self.request setValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-Length"];
@@ -42,11 +55,15 @@
     
     // Get
     // [self.request setHTTPMethod:@"GET"];
-        
+    
     connection = [[NSURLConnection alloc] initWithRequest:self.request
                                                  delegate:self
                                          startImmediately:YES];
     requestNumber++;
+}
+
+- (void)locationError:(NSError *)error {
+    NSLog(@"locationError: %@", [error description]);
 }
 
 

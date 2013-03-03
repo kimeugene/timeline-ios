@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TCoreLocationController.h"
 
-@interface TBackgroundPingOperation : NSOperation <NSURLConnectionDelegate>
+@interface TBackgroundPingOperation : NSOperation <NSURLConnectionDelegate, TCoreLocationControllerDelegate>
+@property (nonatomic, retain) TCoreLocationController *CLController;
 @property (strong, retain) NSURLConnection *connection;
 @property (strong, retain) NSMutableURLRequest *request;
-@property (strong, retain) NSTimer *pingTimer;
 @property NSInteger requestNumber;
+@property (strong, retain) NSTimer *pingTimer;
 @end
