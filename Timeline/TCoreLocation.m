@@ -6,9 +6,9 @@
 //
 //
 
-#import "TCoreLocationController.h"
+#import "TCoreLocation.h"
 
-@implementation TCoreLocationController
+@implementation TCoreLocation
 @synthesize locMgr;
 @synthesize delegate;
 
@@ -25,19 +25,21 @@
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
-    if([self.delegate conformsToProtocol:@protocol(TCoreLocationControllerDelegate)]) {
+    if([self.delegate conformsToProtocol:@protocol(TCoreLocationDelegate)]) {
+        // Before we notify the delegate, filter out GPS coordinates that were retrieved
+        // more than 15 seconds ago. This happens when the LocationManager boots up and
+        // uses old, cached location data just to get you a speedy response.
         NSDate *eventDate = newLocation.timestamp;
         NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
         if (abs(howRecent) > 15.0) {
-        //    return;
+            return;
         }
-        
         [self.delegate locationUpdate:newLocation];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-        if([self.delegate conformsToProtocol:@protocol(TCoreLocationControllerDelegate)]) {
+        if([self.delegate conformsToProtocol:@protocol(TCoreLocationDelegate)]) {
             [self.delegate locationError:error];
         }
 }

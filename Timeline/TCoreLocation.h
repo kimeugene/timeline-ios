@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@protocol TCoreLocationControllerDelegate
+@protocol TCoreLocationDelegate
 @required
 - (void)locationUpdate:(CLLocation *)location; // Our location updates are sent here
 - (void)locationError:(NSError *)error; // Any errors are sent here
 @end
 
-@interface TCoreLocationController : NSObject <CLLocationManagerDelegate> 
+@interface TCoreLocation : NSObject <CLLocationManagerDelegate> 
 @property (nonatomic, retain) CLLocationManager *locMgr;
 @property (nonatomic, assign) id delegate;
 @end
