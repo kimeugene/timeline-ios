@@ -18,4 +18,6 @@
 - (void)sendGetTimelineRequest;
 - (void)updateTimeline:(NSArray*)listOfCoordinates;
 
+@property (strong, nonatomic) NSTimer *m_updatePinsFromServer;
+
 @end

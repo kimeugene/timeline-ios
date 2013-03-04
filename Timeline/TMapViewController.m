@@ -15,6 +15,7 @@
 @implementation TMapViewController
 GMSMapView *mapView_;
 @synthesize m_operationQueue;
+@synthesize m_updatePinsFromServer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,6 +25,11 @@ GMSMapView *mapView_;
         [self setTitle:@"Timeline"];
         m_operationQueue = [[NSOperationQueue alloc] init];
         [self sendGetTimelineRequest];
+        m_updatePinsFromServer = [NSTimer scheduledTimerWithTimeInterval:5
+                                                                  target:self
+                                                                selector:@selector(sendGetTimelineRequest)
+                                                                userInfo:nil
+                                                                 repeats:YES];
     }
     return self;
 }

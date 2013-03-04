@@ -30,7 +30,7 @@
     NSLog(@"TGetTimelineOperation: main() starting execution");
     m_responseData = [[NSMutableData alloc] init];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-50-16-36-166.compute-1.amazonaws.com/get/fitz4@timeline.pwn/2013-03-03"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-50-16-36-166.compute-1.amazonaws.com/get/fitz5@timeline.pwn/2013-03-03"]];
     m_request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSDate *date = [[NSDate alloc] init];
     NSTimeInterval currentTimestamp = [date timeIntervalSince1970];

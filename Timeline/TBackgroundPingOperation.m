@@ -38,7 +38,7 @@
     NSTimeInterval currentTimestamp = [date timeIntervalSince1970];
     
     // Post:
-    NSString *postString = [NSString stringWithFormat:@"email=fitz4@timeline.pwn&timestamp=%i&long=%f&lat=%f", abs(currentTimestamp), location.coordinate.longitude, location.coordinate.latitude];
+    NSString *postString = [NSString stringWithFormat:@"email=fitz5@timeline.pwn&timestamp=%i&long=%f&lat=%f", abs(currentTimestamp), location.coordinate.longitude, location.coordinate.latitude];
     [self.request setHTTPMethod:@"POST"];
     [self.request setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
     [self.request setValue:[NSString stringWithFormat:@"%d", [postString length]] forHTTPHeaderField:@"Content-Length"];
