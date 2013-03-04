@@ -37,9 +37,6 @@ GMSMapView *mapView_;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(sendGetTimelineRequest)];
-    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 - (void)loadView {
