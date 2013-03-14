@@ -66,12 +66,31 @@ GMSMapView *mapView_;
 
 - (void)updateTimeline:(NSArray *)listOfCoordinates
 {
+
     for(int i=0; i<[listOfCoordinates count]; i++) {
+        
         GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
         CLLocationDegrees latitude  = [[[listOfCoordinates objectAtIndex:i] objectAtIndex:0] doubleValue];
         CLLocationDegrees longitude = [[[listOfCoordinates objectAtIndex:i] objectAtIndex:1] doubleValue];
         options.position = CLLocationCoordinate2DMake(latitude, longitude);
+
         [mapView_ addMarkerWithOptions:options];
+
+        if (i > 0) {
+            CLLocationDegrees prev_latitude  = [[[listOfCoordinates objectAtIndex:(i-1)] objectAtIndex:0] doubleValue];
+            CLLocationDegrees prev_longitude = [[[listOfCoordinates objectAtIndex:(i-1)] objectAtIndex:1] doubleValue];
+            
+            
+            GMSPolylineOptions *line = [GMSPolylineOptions options];
+            
+            GMSMutablePath *path = [GMSMutablePath path];
+            [path addCoordinate:CLLocationCoordinate2DMake(prev_latitude, prev_longitude)];
+            [path addCoordinate:CLLocationCoordinate2DMake(latitude, longitude)];
+            line.path = path;
+            
+            [mapView_ addPolylineWithOptions:line];
+        }
+        
     }
     NSLog(@"Updated timeline");
 }
